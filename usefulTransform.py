@@ -39,13 +39,11 @@ if __name__ == '__main__':
     # img_resize = trans_totensor(img_resize)
     writer.add_image("Resize", img_resize, 1)
 
-
     # Transforms.RandomCrop()
     trans_random = transforms.RandomCrop((30, 50))
     trans_compose = transforms.Compose([trans_random, trans_totensor])
     for i in range(10):
         img_crop = trans_compose(img)
         writer.add_image("RandomCrop", img_crop, i)
-
 
     writer.close()
