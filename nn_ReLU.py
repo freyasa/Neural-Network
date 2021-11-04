@@ -31,6 +31,7 @@ if __name__ == '__main__':
 
     for data in dataloader:
         imgs, targets = data
+        imgs -= 0.25
         output = net(imgs)
 
         writer.add_images("Input", imgs, step)
