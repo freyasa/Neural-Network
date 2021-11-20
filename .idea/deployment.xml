@@ -5,7 +5,14 @@
       <paths name="root@36.111.131.21:22">
         <serverdata>
           <mappings>
-            <mapping deploy="/nxdx_dev_2/dev/xzq/torch/torchExercise" local="$PROJECT_DIR$" />
+            <mapping deploy="/" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@36.111.131.21:22 (1)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>

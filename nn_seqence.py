@@ -3,7 +3,7 @@ import torchvision
 from torch import nn
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
-
+import os
 
 class Net(nn.Module):
     def __init__(self):
@@ -53,10 +53,27 @@ def testNet():
     writer.add_graph(net, input)
 
 
+#def saveModel():
+
+
+
 if __name__ == '__main__':
     net = Net()
     testNet()
     dataset = torchvision.datasets.CIFAR10("data/", transform= torchvision.transforms.ToTensor())
     dataloader = DataLoader(dataset, batch_size=64)
+    epoch = 1
+    if not os.path.isdir("./model"):
+        os.mkdir("./model")
+    torch.save(net, './model/net.pth')
+    #saveModel()
+
+    checkpoint = {
+        "net": net.state_dict(),
+        'optimizer': net.state_dict(),
+        "epoch": epoch
+    }
+
+    torch.save(checkpoint, './model/net_last_%s.pth' % (str(epoch)))
 
     print(net)
